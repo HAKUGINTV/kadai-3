@@ -1,0 +1,40 @@
+<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+<h1>Editing Book</h1>
+<div id="error_explanation">
+<% if flash[:error].present? %>
+<h3><%= @book.errors.count %> errors prohibited this obj from being saved:</h3>
+<% flash[:error].each do |error| %>
+<%= error %><br>
+<% end %>
+<% end %>
+</div>
+
+<tbody>
+  <%= form_with model: @book do |f| %>
+  
+  <tr>
+    
+    <th><h5>Title</h5></th>
+      <td><%= f.text_field :title, size: 50 %></td>
+    
+        <th><h5>Opinion</h5></th>
+    <td><%= f.text_area :body, size: 50 %></td>  
+    
+    <div class="form-group">
+
+<input type="submit" name="commit" value="Update Book" class="btn btn-success" data-disable-with="Update Book">
+
+</div>
+  <td>
+    <%= link_to "Show", book_path(@book.id) %>
+    
+  </td>  
+  <td>   
+   <%= link_to "Back", books_path %>  
+    </td> 
+</tr>
+<% end %>
+</tbody>
+  </div>
+  </div>
+</div>
